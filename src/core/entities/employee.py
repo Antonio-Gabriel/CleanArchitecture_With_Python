@@ -1,21 +1,21 @@
 from typing import Type
 from uuid import uuid4
 
-from core.entities.location import Location
+from src.core.entities.location import Location
 
 class Employee:
 
-    def __init__(self, name: str, email: str, phone: int, id: str = None):   
+    def __init__(self, name: str, email: str, phone: int, location: Type[Location], id: str = None):   
         self.name  = name        
         self.email = email
         self.phone = phone
         self.id = id     
 
-        self.location = Type[Location]
+        # association with location object
+        self.location = location
 
-        if id is None:
-            self.id = uuid4()
-
+        self.__generate_id(id)
+        
 
     @property
     def isValidPhoneNumber(self):
@@ -23,3 +23,8 @@ class Employee:
 
         if len(self.phone) < 9: 
             return False             
+    
+
+    def __generate_id(self, id):
+        if id is None:
+            self.id = uuid4()
