@@ -30,6 +30,8 @@ class Employee:
         if id is None:
             self.id = uuid4()
 
+
+    @property
     def show_current_employee(self) -> namedtuple:
         employee_struc = {
             "id": self.id,
