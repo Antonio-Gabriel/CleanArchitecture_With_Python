@@ -17,5 +17,8 @@ class Employee:
             self.id = uuid4()
 
 
-    def isValid(self):
-        pass
+    def isValidPhoneNumber(self):
+        """Returns true if phone number is valid"""
+
+        if len(self.phone) < 9: 
+            return False             
