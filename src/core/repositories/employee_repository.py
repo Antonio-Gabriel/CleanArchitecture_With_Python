@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from typing import List
+from typing import List, Type
 
 from core.entities import Employee
 
@@ -8,7 +8,7 @@ class IEmployeeRepository(ABC):
     """ Represents a repository for employee"""
     
     @abstractmethod
-    def save_employee(name: str, email: str, phone: int) -> None:
+    def save_employee(employee: Type[Employee]) -> None:
         """ save the employee"""
 
         raise NotImplementedError("Method not implemented.")
