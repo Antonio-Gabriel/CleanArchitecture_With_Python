@@ -17,6 +17,7 @@ class Employee:
             self.id = uuid4()
 
 
+    @property
     def isValidPhoneNumber(self):
         """Returns true if phone number is valid"""
 
