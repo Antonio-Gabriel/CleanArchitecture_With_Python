@@ -1,3 +1,4 @@
+from collections import namedtuple
 from typing import Type
 from uuid import uuid4
 
@@ -28,3 +29,18 @@ class Employee:
     def __generate_id(self, id):
         if id is None:
             self.id = uuid4()
+
+    def show_current_employee(self) -> namedtuple:
+        employee_struc = {
+            "id": self.id,
+            "name": self.name,
+            "email": self.email,
+            "phone": self.phone,
+            "location": {
+                "district": self.location.district,
+                "city": self.location.city,
+                "road": self.location.road
+            }
+        }
+
+        return namedtuple("Employee", **employee_struc)        
