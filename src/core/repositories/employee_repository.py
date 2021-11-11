@@ -8,13 +8,13 @@ class IEmployeeRepository(ABC):
     """ Represents a repository for employee"""
     
     @abstractmethod
-    def save_employee() -> None:
+    def save_employee(name: str, email: str, phone: int) -> None:
         """ save the employee"""
 
         raise NotImplementedError("Method not implemented.")
 
     @abstractmethod
-    def get_employee() -> List[Employee]:
+    def get_employees() -> List[Employee]:
         """ Get all employee"""
 
         raise NotImplementedError("Method not implemented.")
