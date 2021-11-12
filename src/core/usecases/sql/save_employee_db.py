@@ -11,6 +11,7 @@ class SaveEmployeeDb:
     
 
     def execute(self, employee_req_dto: Type[IEmployeeRequestDto]):
+        """ Save the employee request"""
 
         employee_data = Employee(
             name=employee_req_dto.name,
