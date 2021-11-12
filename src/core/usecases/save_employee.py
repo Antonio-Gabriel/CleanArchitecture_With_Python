@@ -1,4 +1,3 @@
-#!python3
 from typing import Type
 from src.core.entities import *
 
