@@ -3,7 +3,7 @@
 from dataclasses import dataclass, fields
 from typing import Type
 
-@dataclass(frozen=True)
+@dataclass(frozen=False, init=True)
 class IPersonRequestDTO:
     name: str
     email: int
@@ -15,9 +15,17 @@ class IPersonRequestDTO:
                 raise ValueError(
                     f"Expected {field.name} to be {field.type}, got {repr(value)}"
                     )
+        self.__required_args()
 
-def save(person_request: Type[IPersonRequestDTO]):
+    def __required_args(self):
+        for field in fields(self):
+            value = getattr(self, field.name)
+            if value == "" or None:
+                raise TypeError(
+                    f"Value {field.name} is required"
+                    )
+
+def save(person_request: Type[IPersonRequestDTO]):    
     print(person_request)
-
-save(IPersonRequestDTO(name="ag", email=0))
-
+    
+save(IPersonRequestDTO(name="Ag", email=0))
