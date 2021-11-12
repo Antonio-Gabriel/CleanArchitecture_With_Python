@@ -5,6 +5,8 @@ class EmployeeDTO:
     id: int
 
     def __post_init__(self):
+        """ Initialize the object"""
+
         for field in fields(self):
             value = getattr(self, field.name)
             if not isinstance(value, field.type):

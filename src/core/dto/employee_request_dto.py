@@ -10,6 +10,8 @@ class IEmployeeRequestDto:
     location: Location
 
     def __post_init__(self):
+        """ Initialize the request object """
+
         for field in fields(self):
             value = getattr(self, field.name)
             if not isinstance(value, field.type):
@@ -21,6 +23,8 @@ class IEmployeeRequestDto:
 
 
     def __required_args(self):
+        """ Return all required arguments"""
+
         for field in fields(self):
             value = getattr(self, field.name)
             if value == "" or None:
