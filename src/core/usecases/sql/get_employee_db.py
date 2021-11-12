@@ -11,4 +11,4 @@ class GetEmployeeDb:
     def get(self):
         """ Returns the employee with location"""
 
-        return self.__repository_interface.get_employee()
+        return self.__repository_interface.get_employees()
