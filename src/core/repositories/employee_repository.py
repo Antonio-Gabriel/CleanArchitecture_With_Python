@@ -1,15 +1,14 @@
 from abc import ABC, abstractmethod
 from typing import List, Type
-from collections import namedtuple
 
-from core.entities import Employee
+from src.core.entities import Employee
 
 
 class IEmployeeRepository(ABC):
     """ Represents a repository for employee"""
     
     @abstractmethod
-    def save_employee(employee: Type[Employee]) -> namedtuple:
+    def save_employee(employee: Type[Employee]) -> None:
         """ save the employee"""
 
         raise NotImplementedError("Method not implemented.")
