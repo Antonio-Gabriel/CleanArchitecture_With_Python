@@ -4,35 +4,36 @@ from uuid import uuid4
 
 from src.core.entities.location import Location
 
-class Employee:
+class Employee():
 
     def __init__(self, name: str, email: str, phone: int, location: Type[Location], id: str = None):   
+
+        self.id = self.__generate_id(id)
         self.name  = name        
         self.email = email
         self.phone = phone
-        self.id = id     
 
         # association with location object
         self.location = location
-
-        self.__generate_id(id)
         
 
-    @property
-    def isValidPhoneNumber(self):
+    def isValidPhoneNumber(self, **kwargs) -> bool:
         """Returns true if phone number is valid"""
 
-        if len(self.phone) < 9: 
-            return False             
+        if len(str(kwargs["phone"])) != 9: 
+            return False            
+
+        return True        
     
 
     def __generate_id(self, id):
-        if id is None:
-            self.id = uuid4()
+        #if id is None:
+        return uuid4()
+        return id
 
 
     @property
-    def show_current_employee(self) -> namedtuple:
+    def show_current_employee(self):
         employee_struc = {
             "id": self.id,
             "name": self.name,
@@ -44,5 +45,6 @@ class Employee:
                 "road": self.location.road
             }
         }
-
-        return namedtuple("Employee", **employee_struc)        
+        
+        employee = namedtuple("Employee", employee_struc)        
+        return employee(**employee_struc)
