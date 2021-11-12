@@ -12,7 +12,7 @@ def make_migrations():
 
     statement_location = """        
         CREATE TABLE IF NOT EXISTS location(
-            id integer primary key not null,
+            id integer primary key  autoincrement not null,
             district text not null,
             city text not null,
             road text not null
@@ -23,7 +23,7 @@ def make_migrations():
 
     statement_employee = """
         CREATE TABLE IF NOT EXISTS employee(
-            id integer primary key not null,
+            id integer primary key autoincrement not null,
             location integer not null,
             name text NOT NULL,
             email text NOT NULL,
