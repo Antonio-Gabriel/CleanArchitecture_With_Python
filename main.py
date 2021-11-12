@@ -25,7 +25,7 @@ class IPersonRequestDTO:
                     f"Value {field.name} is required"
                     )
 
-def save(person_request: Type[IPersonRequestDTO]):    
+def save(person_request: Type[IPersonRequestDTO]):   
     print(person_request)
     
-save(IPersonRequestDTO(name="Ag", email=0))
+save(IPersonRequestDTO(name="Ag", email=""))
