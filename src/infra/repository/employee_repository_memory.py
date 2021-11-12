@@ -28,8 +28,8 @@ class EmployeeRepositoryMemory(IEmployeeRepository):
         return self.__storage
     
 
-    def delete_employee(self, id: str) -> Employee:
+    def delete_employee(self, id: int) -> Employee:
         """ Delete the given employee"""
 
-        raise Exception("Method not implemented.")
+        print(id)
     
