@@ -148,3 +148,103 @@ print(response)
 
 Agora assim consegui atingir o objectivo esperado.
 Foi bom ter descoberto essa possibilidade e tornar mais fácil a implementação em nossos apps.
+
+No meio do percurso surgiu mais um outro probleminha aonde quis criar uma validator para verificar se os dados que estou inserindo não estão vazios.
+
+E tente advinhar?... 
+
+Deu sim um erro porque o DTO não era iterable.
+Logo tinha que pensar em uma outra estratégia para conseguir solicionar devidamente essa problemática, foi aí onde pensei em criar uma validação a nível dos meus DTO e ver qual seria o resultado.
+
+No entanto consegui um bom resultado.
+
+Apresentarei agora o antes e depois.
+
+
+**Antes**:
+
+``` python
+
+from dataclasses import dataclass, fields
+from typing import Type
+
+@dataclass(frozen=False, init=True)
+class IPersonRequestDTO:
+    name: str
+    email: int
+
+    def __post_init__(self):
+        for field in fields(self):
+            value = getattr(self, field.name)
+            if not isinstance(value, field.type):
+                raise ValueError(
+                    f"Expected {field.name} to be {field.type}, got {repr(value)}"
+                    )
+
+
+def save(person_request: Type[IPersonRequestDTO]):   
+
+    for attrib in person_request:
+        print(attrib)
+
+
+save(IPersonRequestDTO(name="Ag", email=0))
+
+# Response
+# TypeError: 'IPersonRequestDTO' object is not iterable
+```
+
+Na realidade quis percorrer todos os attributos e validar apenas se estiver vazio os dados
+inseridos pelo DTO.
+
+Pensei mais um pouquinho e encontrei uma solução ainda melhor que seria implementar essa regra
+a nível do meu DTO.
+
+Daí consegui encontrar o seguinte resultado
+
+**Depois**:
+
+``` python
+
+from dataclasses import dataclass, fields
+from typing import Type
+
+@dataclass(frozen=False, init=True)
+class IPersonRequestDTO:
+    name: str
+    email: int
+
+    def __post_init__(self):
+        for field in fields(self):
+            value = getattr(self, field.name)
+            if not isinstance(value, field.type):
+                raise ValueError(
+                    f"Expected {field.name} to be {field.type}, got {repr(value)}"
+                    )
+
+        self.__required_args()
+
+
+    def __required_args(self):
+        for field in fields(self):
+            value = getattr(self, field.name)
+            if value == "" or None:
+                raise TypeError(
+                    f"Value {field.name} is required"
+                    )
+
+
+def save(person_request: Type[IPersonRequestDTO]):   
+    print(person_request)
+
+
+save(IPersonRequestDTO(name="Ag", email=""))
+
+# Response
+# ValueError: Expected email to be <class 'int'>, got ''
+```
+
+Agora sempre que eu errar ao passar os dados como parâmetro vai automaticamente ser lançado uma exceção apresentando a coluna e o erro.
+
+
+Mais uma vez consegui chegar ao que eu pretendia.
