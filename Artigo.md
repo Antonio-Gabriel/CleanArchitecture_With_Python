@@ -95,7 +95,7 @@ response = save(IPersonRequestDTO(
 print(response)
 
 # Response
-# {'name': 'John', 'email': 'john@example.com', 'phone': 978989876, 'code': '00893CDF'}
+# {'name': 'John', 'email': 'john@example.com', 'phone': '978989876', 'code': '00893CDF'}
 ```
 
 A partir dessa situação fui fazendo algumas pesquisas e descobri que tinha sim como implementar algumas verificaçõas usando o `isistance(obj)` que é uma função nativa do python e aí pensei.
