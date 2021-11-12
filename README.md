@@ -36,6 +36,6 @@ Sabendo que `funcionário` agrega `localização`
 
 ## Funcionalidades
 
-- [ ] Registrar usuário e sua localização
-- [ ] Apresentar os usuários e as suas localização
+- [x] Registrar usuário e sua localização
+- [x] Apresentar os usuários e as suas localização
 - [ ] Remover usuário pelo identificador
