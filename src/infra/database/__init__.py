@@ -1,0 +1,1 @@
+from .migrations import make_migrations
