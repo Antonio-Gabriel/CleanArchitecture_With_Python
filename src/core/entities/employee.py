@@ -8,10 +8,10 @@ class Employee():
 
     def __init__(self, name: str, email: str, phone: int, location: Type[Location], id: str = None):   
 
-        self.id = self.__generate_id(id)
-        self.name  = name        
-        self.email = email
-        self.phone = phone
+        self.id       = self.__generate_id(id)
+        self.name     = name        
+        self.email    = email
+        self.phone    = phone
 
         # association with location object
         self.location = location
@@ -39,14 +39,14 @@ class Employee():
         """ Returns """
 
         employee_struc = {
-            "id": self.id,
-            "name": self.name,
-            "email": self.email,
-            "phone": self.phone,
-            "location": {
-                "district": self.location.district,
-                "city": self.location.city,
-                "road": self.location.road
+            "id"     : self.id,
+            "name"   : self.name,
+            "email"  : self.email,
+            "phone"  : self.phone,
+            "location" : {
+                "district" : self.location.district,
+                "city"     : self.location.city,
+                "road"     : self.location.road
             }
         }
         
