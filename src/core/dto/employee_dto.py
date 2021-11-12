@@ -1,5 +1,4 @@
 from dataclasses import dataclass, fields
-from typing import Type
 
 @dataclass(frozen=True)
 class EmployeeDTO:
