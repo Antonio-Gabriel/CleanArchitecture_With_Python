@@ -22,7 +22,7 @@ class TestSaveEmployee(TestCase):
         employee_data = SaveEmployee(EmployeeRepositoryMemory)
         employee = employee_data.execute(
             **{
-                "name": "Ag",
+                "name": "ag",
                 "email": "ag@example.com",
                 "phone": 998987890,
                 "district": "New York",
