@@ -47,6 +47,25 @@ class EmployeeRepository(IEmployeeRepository):
     def get_employees(self) -> List[Employee]:
         """ Get all employee"""
         
+        sql_query = """
+            select  
+            e.name, e.email, e.phone, 
+            l.district, l.city, l.road 
+            from employee e 
+            inner join location l 
+            ON
+            e.location = l.id ;
+        """
+
+        cursor = self.__connection.cursor()
+        cursor.execute(sql_query)
+        result = cursor.fetchall()                
+
+        cursor.close()
+        self.__connection.close()
+        
+        return result
+
     
     def delete_employee(self, id: int) -> Employee:
         """ Delete the given employee"""
