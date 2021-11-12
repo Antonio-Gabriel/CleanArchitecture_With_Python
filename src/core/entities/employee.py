@@ -27,8 +27,8 @@ class Employee():
     
 
     def __generate_id(self, id):
-        #if id is None:
-        return uuid4()
+        if id is None:
+            return uuid4()
         return id
 
 
