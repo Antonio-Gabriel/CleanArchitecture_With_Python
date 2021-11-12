@@ -20,3 +20,4 @@ def save(person_request: Type[IPersonRequestDTO]):
     print(person_request)
 
 save(IPersonRequestDTO(name="ag", email=0))
+
