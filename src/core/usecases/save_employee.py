@@ -12,6 +12,9 @@ class SaveEmployee:
 
 
     def execute(self, **kwargs) -> Employee:       
+        """ Save the employee and return the employee
+            :param kwargs: keyword arguments of employee
+        """
 
         if not self.__is_null_or_empty(**kwargs): 
             raise Exception("Error on Object, have a empty value")
@@ -37,6 +40,10 @@ class SaveEmployee:
         
              
     def __is_null_or_empty(self, **kwargs) -> bool:
+        """ Check if the employee is null or empty
+            :param kwargs: keyword arguments of employee
+        """
+
         for data in kwargs.values():
             if data is "" or None:
                 return False
