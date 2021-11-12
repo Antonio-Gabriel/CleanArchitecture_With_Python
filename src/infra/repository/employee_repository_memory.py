@@ -5,7 +5,16 @@ from src.core.repositories import IEmployeeRepository
 class EmployeeRepositoryMemory(IEmployeeRepository):
     
     def __init__(self):
-        self.__storage = []
+        self.__storage = [
+            {
+                "name": "ag",
+                "email": "ag@example.com",
+                "phone": 998987890,
+                "district": "New York",
+                "city": "New York",
+                "road": "New York"
+            }
+        ]
     
 
     def save_employee(self, employee: Type[Employee]) -> None:
