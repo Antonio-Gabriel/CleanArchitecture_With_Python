@@ -7,12 +7,12 @@ class EmployeeRepositoryMemory(IEmployeeRepository):
     def __init__(self):
         self.__storage = [
             {
-                "name": "ag",
-                "email": "ag@example.com",
-                "phone": 998987890,
-                "district": "New York",
-                "city": "New York",
-                "road": "New York"
+                "name"     : "ag",
+                "email"    : "ag@example.com",
+                "phone"    : 998987890,
+                "district" : "New York",
+                "city"     : "New York",
+                "road"     : "New York"
             }
         ]
     
