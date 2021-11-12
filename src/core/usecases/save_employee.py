@@ -13,7 +13,7 @@ class SaveEmployee:
 
     def execute(self, **kwargs) -> Employee:       
 
-        if self.__is_null_or_empty(**kwargs): 
+        if not self.__is_null_or_empty(**kwargs): 
             raise Exception("Error on Object, have a empty value")
 
         employee_data = Employee(
@@ -37,6 +37,7 @@ class SaveEmployee:
         
              
     def __is_null_or_empty(self, **kwargs) -> bool:
-        for data in kwargs:
-            if data == "" or None:
+        for data in kwargs.values():
+            if data is "" or None:
                 return False
+        return True
