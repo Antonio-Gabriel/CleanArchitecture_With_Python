@@ -7,6 +7,7 @@ def make_migrations():
     write code that will execute the given sql statement
     on the database
     """
+    
     connection = get_database_connection()
 
     statement_location = """        
