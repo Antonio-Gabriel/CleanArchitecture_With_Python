@@ -27,6 +27,8 @@ class Employee():
     
 
     def __generate_id(self, id):
+        """ __generate_id """
+
         if id is None:
             return uuid4()
         return id
@@ -34,6 +36,8 @@ class Employee():
 
     @property
     def show_current_employee(self):
+        """ Returns """
+
         employee_struc = {
             "id": self.id,
             "name": self.name,
