@@ -1,8 +1,9 @@
 from typing import Type
 
-from src.core.dto.employee_request_dto import IEmployeeRequestDto
 from src.core.entities import Employee, Location
+from src.core.dto.employee_request_dto import IEmployeeRequestDto
 from src.core.repositories import IEmployeeRepository
+from src.adapter import EmployeeAdapter
 
 class SaveEmployeeDb:
 
@@ -12,18 +13,13 @@ class SaveEmployeeDb:
 
     def execute(self, employee_req_dto: Type[IEmployeeRequestDto]):
         """ Save the employee request"""
-
-        employee_data = Employee(
-            name=employee_req_dto.name,
-            email=employee_req_dto.email,
-            phone=employee_req_dto.phone,
-            location= Location(
-                district=employee_req_dto.location.district,
-                road=employee_req_dto.location.road,
-                city=employee_req_dto.location.city
-                )
+                            
+        employee_data = EmployeeAdapter.create(
+            employee_req_dto.name, employee_req_dto.email, 
+            employee_req_dto.phone, employee_req_dto.location.district, 
+            employee_req_dto.location.road, employee_req_dto.location.city
             )
-                    
+
         if not employee_data.isValidPhoneNumber(**{
             "phone": employee_req_dto.phone
         }): 
