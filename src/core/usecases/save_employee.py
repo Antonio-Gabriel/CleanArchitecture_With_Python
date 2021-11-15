@@ -1,4 +1,5 @@
 from typing import Type
+from src.adapter import EmployeeAdapter
 from src.core.entities import *
 
 from src.core.repositories import IEmployeeRepository
@@ -18,15 +19,10 @@ class SaveEmployee:
         if not self.__is_null_or_empty(**kwargs): 
             raise Exception("Error on Object, have a empty value")
 
-        employee_data = Employee(
-            name=kwargs["name"],
-            email=kwargs["email"],
-            phone=kwargs["phone"],
-            location= Location(
-                district=kwargs["district"],
-                road=kwargs["road"],
-                city=kwargs["city"]
-                )
+        employee_data = EmployeeAdapter.create(
+            kwargs["name"], kwargs["email"], 
+            kwargs["phone"], kwargs["district"], 
+            kwargs["road"], kwargs["city"]
             )
                     
         if not employee_data.isValidPhoneNumber(**{
