@@ -13,13 +13,13 @@ class EmployeeSaveDb(TestCase):
         employee_data = SaveEmployeeDb(EmployeeRepository)
         response = employee_data.execute(
             IEmployeeRequestDto(
-                    name='Ag', 
+                    name='António Campos Gabriel', 
                     email='test@example.com', 
-                    phone=998987688,
+                    phone=998987689,
                     location= Location(
-                        district="Newyork",
-                        city='Newyork',
-                        road="NS"
+                        district="Hoji-ya-henda",
+                        city='Luanda',
+                        road="Zamba4"
                     )
                 )
             )
