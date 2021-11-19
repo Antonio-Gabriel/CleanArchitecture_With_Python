@@ -27,4 +27,4 @@ class SaveEmployeeDb:
 
         self.__repository_interface.save_employee(employee_data)
 
-        return "OK"
+        return employee_data.show_current_employee
