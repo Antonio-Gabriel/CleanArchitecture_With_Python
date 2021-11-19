@@ -41,7 +41,7 @@ class EmployeeController(IRouter):
                 },
             }
 
-            return HttpResponse(status_code=200, body=response_body)
+            return HttpResponse(status_code=200, body=[response_body])
 
         http_error = HttpErrors._400()
         return HttpResponse(status_code=http_error["status_code"], body=http_error["body"])
