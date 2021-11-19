@@ -11,5 +11,5 @@ def hello():
 
     adapter = FlaskAdapter()
     response = adapter.execute(request, EmployeeController())
-
+    
     return jsonify({"status_code": response.status_code, "data": response.body})
