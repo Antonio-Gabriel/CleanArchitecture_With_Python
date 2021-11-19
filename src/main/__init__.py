@@ -1,1 +1,1 @@
-from .interface import RouterInterface
+from .interface import IRouter
