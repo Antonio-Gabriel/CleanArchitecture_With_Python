@@ -9,5 +9,5 @@ class EmployeeController(IRouter):
 
     def route(self, http_request: Type[HttpRequest]) -> HttpResponse:
         """ Employee route for get """
-
-        return HttpResponse(status_code=200, body={"name": "Herlander de Castro Bento"})
+        
+        return HttpResponse(status_code=200, body={"name": http_request.body["name"]})
