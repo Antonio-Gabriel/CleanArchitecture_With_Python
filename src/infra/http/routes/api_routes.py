@@ -15,7 +15,7 @@ def create():
     return jsonify({"status_code": response.status_code, "data": [response.body]})
 
 
-@api_routes_bp.route('/employee', methods=['GET'])
+@api_routes_bp.route('/employees', methods=['GET'])
 def get_employee_with_location():
     """ return employee """
 
