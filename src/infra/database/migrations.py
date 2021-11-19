@@ -1,5 +1,6 @@
 from src.infra.database.database import get_database_connection
 
+
 def make_migrations():
     """
     Creates a table ready to accept our data.
@@ -7,7 +8,7 @@ def make_migrations():
     write code that will execute the given sql statement
     on the database
     """
-    
+
     connection = get_database_connection()
 
     statement_location = """        
@@ -17,7 +18,7 @@ def make_migrations():
             city text not null,
             road text not null
         )
-    """ 
+    """
 
     connection.execute(statement_location)
 

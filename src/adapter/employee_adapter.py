@@ -1,5 +1,6 @@
 from src.core.entities import Employee, Location
 
+
 class EmployeeAdapter:
 
     @staticmethod
@@ -19,9 +20,9 @@ class EmployeeAdapter:
             name=name,
             email=email,
             phone=phone,
-            location= Location(
+            location=Location(
                 district=district,
                 road=road,
                 city=city
-                )
             )
+        )

@@ -2,6 +2,7 @@ from dataclasses import dataclass, fields
 
 from src.core.entities import Location
 
+
 @dataclass(frozen=True)
 class IEmployeeRequestDto:
     name: str
@@ -17,10 +18,9 @@ class IEmployeeRequestDto:
             if not isinstance(value, field.type):
                 raise ValueError(
                     f"Expected {field.name} to be {field.type} but got {repr(value)}"
-                    )
-                    
-        self.__required_args()
+                )
 
+        self.__required_args()
 
     def __required_args(self):
         """ Return all required arguments"""

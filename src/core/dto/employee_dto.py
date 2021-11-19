@@ -1,5 +1,6 @@
 from dataclasses import dataclass, fields
 
+
 @dataclass(frozen=True)
 class EmployeeDTO:
     id: int
@@ -12,4 +13,4 @@ class EmployeeDTO:
             if not isinstance(value, field.type):
                 raise ValueError(
                     f"Expected {field.name} to be of type {field.type}, got {repr(value)}"
-                    )
+                )

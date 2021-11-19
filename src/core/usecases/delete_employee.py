@@ -8,7 +8,7 @@ class DeleteEmployee:
 
     def __init__(self, employee_repository_interface: Type[IEmployeeRepository]):
         self.__employee_repository = employee_repository_interface()
-    
+
     def execute(self, employee_request: Type[EmployeeDTO]):
         """ Delete the employee
             :param id: The id of the employee
