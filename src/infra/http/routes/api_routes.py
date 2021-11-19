@@ -13,6 +13,6 @@ def hello():
     # response = employee_controller.route(request)
 
     adapter = FlaskAdapter()
-    response = adapter.execute(request, EmployeeController)
+    response = adapter.execute(request, EmployeeController())
 
     return jsonify({"status_code": response.status_code, "data": response.body})
