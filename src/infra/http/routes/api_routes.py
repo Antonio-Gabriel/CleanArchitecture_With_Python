@@ -9,9 +9,6 @@ api_routes_bp = Blueprint('api_routes', __name__)
 def hello():
     """ first route """
 
-    # employee_controller = EmployeeController()
-    # response = employee_controller.route(request)
-
     adapter = FlaskAdapter()
     response = adapter.execute(request, EmployeeController())
 
