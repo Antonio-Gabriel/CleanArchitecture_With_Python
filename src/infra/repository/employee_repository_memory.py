@@ -31,5 +31,5 @@ class EmployeeRepositoryMemory(IEmployeeRepository):
     def delete_employee(self, id: int) -> Employee:
         """ Delete the given employee"""
 
-        print(id)
+        pass
     
