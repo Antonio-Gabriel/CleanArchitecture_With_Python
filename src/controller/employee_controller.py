@@ -1,7 +1,8 @@
 from typing import Type
 from src.infra.helpers import HttpRequest, HttpResponse
+from src.main import IRouter
 
-class EmployeeController:
+class EmployeeController(IRouter):
 
     def __init__(self):
         pass
