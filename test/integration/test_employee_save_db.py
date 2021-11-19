@@ -24,6 +24,6 @@ class EmployeeSaveDb(TestCase):
                 )
             )
 
-        print(response)
+        print(response.name)
         
         self.assertTrue(True)
