@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from src.controller import EmployeeController
+from src.controller import EmployeeController, GetEmployeeController
 from src.adapter import FlaskAdapter
 
 api_routes_bp = Blueprint('api_routes', __name__)
@@ -20,6 +20,6 @@ def get_employee_with_location():
     """ return employee """
 
     adapter = FlaskAdapter()
-    response = adapter.execute(request, EmployeeController())
+    response = adapter.execute(request, GetEmployeeController())
 
     return jsonify({"status_code": response.status_code, "data": response.body})
