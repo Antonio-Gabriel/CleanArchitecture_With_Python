@@ -31,5 +31,5 @@ class TestSaveEmployee(TestCase):
             }
         )
         
-        print(employee)
+        print(employee.location["district"])
         self.assertTrue(True)
