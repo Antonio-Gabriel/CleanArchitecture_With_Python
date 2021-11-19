@@ -22,4 +22,4 @@ def get_employee_with_location():
     adapter = FlaskAdapter()
     response = adapter.execute(request, EmployeeController())
 
-    return jsonify({"status_code": response.status_code, "data": [response.body]})
+    return jsonify({"status_code": response.status_code, "data": response.body})
