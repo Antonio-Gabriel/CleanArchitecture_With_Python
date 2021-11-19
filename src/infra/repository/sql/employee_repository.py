@@ -70,6 +70,8 @@ class EmployeeRepository(IEmployeeRepository):
     def delete_employee(self, id: int) -> Employee:
         """ Delete the given employee"""
 
+        pass
+
 
     def __get_afected_row_trigger(self, id: int):
 
