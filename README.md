@@ -28,11 +28,19 @@ Sabendo que `funcionário` agrega `localização`
 ### ou
 
 | Funcionário | Localização |
-| :---        |    :----:   |
-| Id          | Bairro      |
-| Nome        | Rua         | 
-| Email       | Cidade      |
+| :---------- | :---------: |
+| Id          |   Bairro    |
+| Nome        |     Rua     |
+| Email       |   Cidade    |
 | Phone       |             |
+
+## Framework
+
+O framework utilizado para o desenvolvimento do frontEnd da aplicação foi:
+
+<img 
+src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Flask_logo.svg/1200px-Flask_logo.svg.png" 
+alt="Flask framework">
 
 ## Funcionalidades
 
